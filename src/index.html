@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meal Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!-- Navigation Button -->
+  <div class="nav-button">
+    <a href="home.html" aria-label="Go to Meal Planner & Grocery List">Home</a>
+    <a href="meal-planner-grocery-list.html" aria-label="Go to Meal Planner & Grocery List">Your Planner</a>
+  </div>
+
+  <!-- Meal Search Section -->
+  <div class="meal-search" aria-label="Meal Search Section">
+    <input type="text" id="search-input" placeholder="Search meals by name" aria-label="Search meals by name">
+    <button id="search-btn" aria-label="Search button">Search</button>
+    <select id="category-select" aria-label="Meal category selector">
+      <option value="">Select Category</option>
+    </select>
+  </div>
+
+  <!-- Meal List Section -->
+  <div id="meal" class="meal-list" aria-label="Meal List Section"></div>
+
+  <!-- Modal for Meal Details -->
+  <div class="meal-details" role="dialog" aria-modal="true" aria-labelledby="meal-details-title">
+    <div class="meal-details-content">
+      <button id="recipe-close-btn" aria-label="Close Recipe Details">&times;</button>
+      <img id="recipe-image" src="" alt="Meal Image" class="meal-detail-image">
+      <div id="recipe-content"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

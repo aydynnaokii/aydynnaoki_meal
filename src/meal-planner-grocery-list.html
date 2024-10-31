@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meal Planner & Grocery List</title>
+  <style>
+    /* Background Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4); /* Dark overlay for readability */
+      z-index: -1;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: url('image3.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 20px;
+      color: #f8f9fa;
+      position: relative;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    }
+
+    .nav-button {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .nav-button a {
+      text-decoration: none;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      font-weight: bold;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-button a:hover {
+      background-color: #0056b3;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .planner-list, .grocery-list {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .planner-list li, .grocery-list li {
+      list-style: none;
+      padding: 10px;
+      border-bottom: 1px solid #dee2e6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #343a40;
+    }
+
+    .planner-list li:last-child, .grocery-list li:last-child {
+      border-bottom: none;
+    }
+
+    .planner-list button, .grocery-list button {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .planner-list button:hover, .grocery-list button:hover {
+      background-color: #c82333;
+    }
+
+    .planner-list h3, .grocery-list h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #007bff;
+    }
+
+    .planner-list p, .grocery-list p {
+      margin: 0;
+      color: #6c757d;
+    }
+
+    /* Update modal styles */
+    .update-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .update-modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+      position: relative;
+      color: #343a40;
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .update-modal input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+    }
+
+    .update-modal button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .update-modal button:hover {
+      background-color: #0056b3;
+    }
+
+    #update-close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #343a40;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Button -->
+  <div class="nav-button">
+    <a href="home.html" aria-label="Go to Home">Home</a>
+    <a href="index.html" aria-label="Go to Meal Finder">Meal Finder</a>
+  </div>
+
+  <!-- Meal Planner Section -->
+  <h2>Meal Planner</h2>
+  <div id="planner" class="planner-list" aria-label="Meal Planner Section"></div>
+
+  <!-- Grocery List Section -->
+  <h2>Grocery List</h2>
+  <div id="groceryList" class="grocery-list" aria-label="Grocery List Section">
+    <input type="text" id="new-grocery-input" placeholder="Add new grocery item" aria-label="Add new grocery">
+    <button id="add-grocery-btn">Add Grocery</button>
+  </div>
+
+  <!-- Update Modal -->
+  <div class="update-modal" id="update-modal">
+    <div class="update-modal-content">
+      <button id="update-close-btn" aria-label="Close Update Modal">&times;</button>
+      <h3>Update Item</h3>
+      <input type="text" id="update-input" placeholder="Enter new value" aria-label="New value for item">
+      <button id="update-btn" aria-label="Update Item">Update</button>
+    </div>
+    <div class="meal-details">
+      <button class="close-btn" id="recipe-close-btn">X</button>
+      <div class="meal-details-content">
+        <!-- Recipe content goes here -->
+      </div>
+    </div>
+    
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

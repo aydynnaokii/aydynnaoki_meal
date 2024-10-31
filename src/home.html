@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Recipe & Food Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Overlay -->
+    <div class="background-overlay"></div>
+    
+    <!-- Navigation Button Style -->
+    <div class="nav-button">
+        <a href="index.html" aria-label="Go to Any Recipe">Meal Finder</a>
+        <a href="meal-planner-grocery-list.html" aria-label="Go to Meal Planner & Grocery List">Meal Planner & Grocery List</a>
+    </div>
+
+    <header>
+        <h1>Welcome to Your Recipe & Food Planner</h1>
+        <p>Discover new recipes, view step-by-step instructions, and organize your meals with ease!</p>
+    </header>
+    
+    <main>
+        <!-- Features Section with Cards -->
+        <section class="features">
+            <h2>Key Features</h2>
+            <div class="cards">
+                <div class="card red">
+                    <p class="tip">Explore Recipes</p>
+                    <p class="second-text">Browse a wide range of recipes with step-by-step instructions.</p>
+                </div>
+                <div class="card blue">
+                    <p class="tip">Organize Your Planner</p>
+                    <p class="second-text">Streamline your meal prep with a personal meal planner.</p>
+                </div>
+                <div class="card green">
+                    <p class="tip">Filter by Categories</p>
+                    <p class="second-text">Find recipes based on cuisine or dietary preference.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Recipe & Food Planner. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Styles -->
+    <style>
+        /* Background Overlay */
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            z-index: -1;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url('image2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        header, .features, footer {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Navigation Button */
+        .nav-button {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .nav-button a {
+            padding: 8px 16px;
+            background: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Header and Footer */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        /* Card Style */
+        .card {
+            background-color: #fff;
+            color: #333;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card p.tip {
+            font-weight: bold;
+            color: #007BFF;
+        }
+    </style>
+</body>
+</html>
